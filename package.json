@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "MIT",
+  "bin": {
+    "your-app": "bin/your-app"
+  },
   "dependencies": {
     "chalk-pipe": "^2.0.0",
     "execa": "^1.0.0",
