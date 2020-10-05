@@ -7,12 +7,16 @@ const Listr = require('listr');
 const figlet = require('figlet');
 const moment = require('moment');
 
+const settings = require('./settings');
+
 const pathToExpressoMachine = require('global-modules-path').getPath(
     'your-module-name'
 );
 
-const appName = 'my-cli-app';
-let year = moment().format('YYYY');
+const appName = settings.applicationName;
+const year = settings.year;
+const author = settings.author;
+const slogan = settings.slogan;
 
 const execute = (prog) => {
     console.log(chalkPipe('orange.bold')(`${appName} is starting....`));
@@ -20,7 +24,7 @@ const execute = (prog) => {
     const tasks = new Listr(
         [{
                 title: 'First task',
-                task: () => console.log(chalkPipe('orange.bold')(`First task`))
+                task: () => console.log(chalkPipe('orange.bold')(`First task ${process.cwd()}`))
             },
             {
                 title: 'First task',
@@ -57,10 +61,10 @@ if (program.about) {
             return;
         }
         console.log(chalkPipe('orange.bold')(''));
-        console.log(chalkPipe('orange.bold')(`Do something with your ${appName}`));
+        console.log(chalkPipe('orange.bold')(`${slogan}`));
         console.log(chalkPipe('orange.bold')(data));
         console.log(chalkPipe('orange.bold')(''));
-        console.log(chalkPipe('orange.bold')(`(c) ${year} <Your name goes here>`));
+        console.log(chalkPipe('orange.bold')(`(c) ${year} ${author}`));
         console.log(chalkPipe('orange.bold')('\n'));
     });
 }
