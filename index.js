@@ -37,11 +37,11 @@ const execute = (prog) => {
         }).catch(e => console.log(chalkPipe('bgRed.#cccccc')('ERROR!!', e.message)));
 
 }
-
+console.log(JSON.stringify(program))
 program
     .version('0.1.0')
     .name(`${appName}`)
-    .usage(`-i ${appName} l- product,category`)
+    .usage(`-i ${appName} l- option1,option2`)
     .option('-i --init', 'Initialize & execute!')
     .option(
         '-a, --about',
@@ -65,6 +65,6 @@ if (program.about) {
     });
 }
 
-if (!program.abojut && program.init) {
+if (!program.about && program.init) {
     execute(program);
 }
